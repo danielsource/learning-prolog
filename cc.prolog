@@ -122,7 +122,7 @@ requisito(psc, es).
 requisito(tcc_2, tcc_1).
 
 %
-% DISCIPLINAS QUE FUI APROVADO
+% DISCIPLINAS EM QUE FUI APROVADO
 %
 
 aprovado(icc).
@@ -153,7 +153,7 @@ matricula(X) :-
 	disciplina(X, _),  % X é uma disciplina de algum período.
 	not(aprovado(X)),  % O aluno não foi aprovado em X.
 	not(cursando(X)),  % O aluno não está cursando X.
-	% Para todo pré-requisito X0, o aluno aprovado em X0:
+	% Para todo pré-requisito X0, o aluno está aprovado em X0:
 	forall((disciplina(X0, _), requisito(X, X0)), 
 		aprovado(X0)).
 % Em notação de primeira ordem:
