@@ -151,8 +151,8 @@ cursando(adm).
 % É possível se matricular em <X>?
 matricula(X) :-
 	disciplina(X, _),  % X é uma disciplina de algum período.
-	not(aprovado(X)),  % O aluno não foi aprovado em X.
-	not(cursando(X)),  % O aluno não está cursando X.
+	\+ aprovado(X),    % O aluno não foi aprovado em X.
+	\+ cursando(X),    % O aluno não está cursando X.
 	% Para todo pré-requisito X0, o aluno está aprovado em X0:
 	forall((disciplina(X0, _), requisito(X, X0)), 
 		aprovado(X0)).
