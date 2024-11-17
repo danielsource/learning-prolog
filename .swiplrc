@@ -3,6 +3,5 @@
 :- set_prolog_flag(double_quotes, chars).
 :- set_prolog_flag(toplevel_print_anon, false).
 :- use_module(library(theme/dark)).
-:- use_module(library(gui_tracer)).
 
 % vim:ft=prolog:
