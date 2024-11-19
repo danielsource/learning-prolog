@@ -122,16 +122,18 @@ requisito(psc, es).
 requisito(tcc_2, tcc_1).
 
 %
-% DISCIPLINAS EM QUE FUI APROVADO
+% DISCIPLINAS QUE CURSEI
 %
 
-aprovado(icc).
-aprovado(ip).
-aprovado(cid_1).
-aprovado(ga).
-aprovado(md).
-aprovado(mc).
-aprovado(si).
+% Cursada: <disciplina>, <nota>.
+
+cursada(icc,    8.5).
+cursada(ip,    10.0).
+cursada(cid_1,  8.23).
+cursada(ga,     9.1).
+cursada(md,     8.0).
+cursada(mc,     9.4).
+cursada(si,     7.8).
 
 %
 % DISCIPLINAS QUE ESTOU CURSANDO
@@ -147,6 +149,12 @@ cursando(adm).
 % 
 % REGRAS
 %
+
+% O aluno está aprovado em <X>?
+aprovado(X) :-
+	disciplina(X, _),
+	cursada(X, Nota),
+	Nota >= 7.0.
 
 % É possível se matricular em <X>?
 matricula(X) :-
