@@ -2,6 +2,7 @@
 
 :- set_prolog_flag(double_quotes, chars).
 :- set_prolog_flag(toplevel_print_anon, false).
+:- set_prolog_flag(answer_write_options, [quoted(true), portray(true), max_depth(256), spacing(next_argument)]).
 :- use_module(library(theme/dark)).
 
 % vim:ft=prolog:
