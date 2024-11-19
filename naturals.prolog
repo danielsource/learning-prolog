@@ -3,10 +3,22 @@ nat(zero).
 % Se N é natural, seu sucessor é Natural:
 nat(s(N)) :- nat(N).
 
+% Menor que:
+lt(zero, s(N))   :- nat(N).
+lt(s(N0), s(N1)) :- lt(N0, N1).
+
+% Maior ou igual que:
+ge(N0, N1) :- \+ lt(N0, N1).
+
+% Igualdade:
+eq(N, N) :- nat(N).
+
+% Paridade:
 even(zero).                        % 'zero' é par;
 even(s(N)) :- nat(N), odd(N).      % se N é ímpar, seu sucessor é par.
 odd(N)     :- nat(N), \+ even(N).  % ímpar é "não par".
 
+% Soma:
 add(zero, N, N) :- nat(N).
 add(s(N0), N1, s(N)) :- add(N0, N1, N).
 
