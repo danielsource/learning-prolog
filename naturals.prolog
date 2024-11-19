@@ -1,10 +1,10 @@
 % 'zero' é Natural:
 nat(zero).
-% O sucessor de N sendo Natural acarreta que N seja Natural:
+% Se N é natural, seu sucessor é Natural:
 nat(s(N)) :- nat(N).
 
 even(zero).                        % 'zero' é par;
-even(s(N)) :- nat(N), odd(N).      % se o sucessor é par, então N é ímpar;
+even(s(N)) :- nat(N), odd(N).      % se N é ímpar, seu sucessor é par.
 odd(N)     :- nat(N), \+ even(N).  % ímpar é "não par".
 
 add(zero, N, N) :- nat(N).
