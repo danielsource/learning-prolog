@@ -129,17 +129,17 @@ requisito(tcc_2, tcc_1).
 
 cursada(icc,    8.5).
 cursada(ip,    10.0).
-cursada(cid_1,  8.23).
+cursada(cid_1,  8.2).
 cursada(ga,     9.1).
 cursada(md,     8.0).
 cursada(mc,     9.4).
+cursada(plp,    8.6).
 cursada(si,     7.8).
 
 %
 % DISCIPLINAS QUE ESTOU CURSANDO
 %
 
-cursando(plp).
 cursando(cid_2).
 cursando(fcc_1).
 cursando(al).
@@ -152,18 +152,18 @@ cursando(adm).
 
 % O aluno está aprovado em <X>?
 aprovado(X) :-
-	disciplina(X, _),
-	cursada(X, Nota),
-	Nota >= 7.0.
+    disciplina(X, _),
+    cursada(X, Nota),
+    Nota >= 7.0.
 
 % É possível se matricular em <X>?
 matricula(X) :-
-	disciplina(X, _),  % X é uma disciplina de algum período.
-	\+ aprovado(X),    % O aluno não foi aprovado em X.
-	\+ cursando(X),    % O aluno não está cursando X.
-	% Para todo pré-requisito X0, o aluno está aprovado em X0:
-	forall((disciplina(X0, _), requisito(X, X0)), 
-		aprovado(X0)).
+    disciplina(X, _),  % X é uma disciplina de algum período.
+    \+ aprovado(X),    % O aluno não foi aprovado em X.
+    \+ cursando(X),    % O aluno não está cursando X.
+    % Para todo pré-requisito X0, o aluno está aprovado em X0:
+    forall((disciplina(X0, _), requisito(X, X0)),
+        aprovado(X0)).
 % Em notação de primeira ordem:
 %   domínio: disciplinas do curso
 %   M(x): ~A(x) ^ ~C(x) ^ (Ay)[R(x, y) => A(y)]

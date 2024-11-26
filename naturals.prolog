@@ -27,8 +27,8 @@ to_int(zero, 0).
 to_int(s(N), I) :- nat(N), to_int(N, 1, I).
 to_int(zero, Sum, Sum).
 to_int(s(N), Sum, I) :-
-	Sum1 is Sum + 1,
-	to_int(N, Sum1, I).
+    Sum1 is Sum + 1,
+    to_int(N, Sum1, I).
 
 % zero          <=> 0
 % s(zero)       <=> 1
